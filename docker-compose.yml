@@ -1,0 +1,27 @@
+version: "3.8"
+
+#Extension fields
+x-app: 
+  &x-app
+  image: "node:16"
+  working_dir: $PWD
+  environment:
+    - NODE_ENV=development
+  volumes:
+    - ./:$PWD
+
+services:
+  web:
+    <<: *x-app
+    env_file: .env
+    expose:
+      - "8081"
+    command: "npm start"
+    networks:
+      - contato
+  compile:
+    <<: *x-app
+    command: "npm compile"
+
+networks:
+  contato:

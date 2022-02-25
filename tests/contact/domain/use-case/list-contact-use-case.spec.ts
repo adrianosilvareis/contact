@@ -1,4 +1,4 @@
-import { ListContactUseCase } from "../../../../src/contato/domain/use-case/list-contact-use-case";
+import { ListContactUseCase } from "../../../../src/contact/domain/use-case/list-contact-use-case";
 import { InMemoryContactRepository } from "../../repositories/in-memory-contact-repository";
 import { ContactBuilder } from "../../builders/contact-builder";
 

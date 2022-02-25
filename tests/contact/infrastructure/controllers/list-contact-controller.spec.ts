@@ -1,6 +1,6 @@
 import { Response } from "express";
-import { ListContactUseCase } from "../../../../src/contato/domain/use-case/list-contact-use-case";
-import { ListContactController } from "../../../../src/contato/infrastructure/controllers/list-contact-controller";
+import { ListContactUseCase } from "../../../../src/contact/domain/use-case/list-contact-use-case";
+import { ListContactController } from "../../../../src/contact/infrastructure/controllers/list-contact-controller";
 import { ContactBuilder } from "../../builders/contact-builder";
 import { InMemoryContactRepository } from "../../repositories/in-memory-contact-repository";
 import { createResponse, MockResponse } from "node-mocks-http"

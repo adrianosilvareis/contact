@@ -1,4 +1,4 @@
-import { Contact } from "../../../src/contato/domain/entities/contact";
+import { Contact } from "../../../src/contact/domain/entities/contact";
 import { Builder } from "../../../src/core/builder";
 import faker from "faker"
 

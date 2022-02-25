@@ -1,4 +1,4 @@
-import { Contact } from "../../../../src/contato/domain/entities/contact";
+import { Contact } from "../../../../src/contact/domain/entities/contact";
 import { ContactBuilder } from "../../builders/contact-builder";
 
 describe('Contact', () => {

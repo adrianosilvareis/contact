@@ -1,6 +1,7 @@
-import { Contact } from "../../../src/contact/domain/entities/contact";
-import { Builder } from "../../../src/core/builder";
-import faker from "faker"
+import faker from 'faker';
+
+import { Contact } from '@/contact/domain/entities/contact';
+import { Builder } from '@/core/builder';
 
 export class ContactBuilder extends Builder<Contact, ContactBuilder> {
   public constructor() {
@@ -8,10 +9,10 @@ export class ContactBuilder extends Builder<Contact, ContactBuilder> {
   }
 
   public buildDefault(): Contact {
-    return Contact.create({ 
+    return Contact.create({
       name: faker.name.firstName(),
       email: faker.internet.email(),
-      phoneNumber: faker.phone.phoneNumber(), 
+      phoneNumber: faker.phone.phoneNumber(),
     });
   }
 }

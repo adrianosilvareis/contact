@@ -1,35 +1,36 @@
-import { ListContactUseCase } from "../../../../src/contact/domain/use-case/list-contact-use-case";
-import { InMemoryContactRepository } from "../../repositories/in-memory-contact-repository";
-import { ContactBuilder } from "../../builders/contact-builder";
+import { ListContactUseCase } from '@/contact/domain/use-case/list-contact-use-case';
+
+import { InMemoryContactRepository } from '#/contact/repositories/in-memory-contact-repository';
+import { ContactBuilder } from '#/contact/builders/contact-builder';
 
 describe('ListContactUseCase', () => {
-  it('should call emit success with list of contacts', async () => { 
+  it('should call emit success with list of contacts', async () => {
     // given
-    const contacts =  new ContactBuilder().buildMany();
+    const contacts = new ContactBuilder().buildMany();
     const repository = new InMemoryContactRepository();
-    repository.contacts = contacts
+    repository.contacts = contacts;
     const callback = jest.fn();
-    
+
     // wen
-    const sut = new ListContactUseCase(repository)
-    sut.on("success", callback)
-    await sut.handler()
+    const sut = new ListContactUseCase(repository);
+    sut.on('success', callback);
+    await sut.handler();
 
     // then
-    expect(callback).toHaveBeenCalledWith(contacts)
+    expect(callback).toHaveBeenCalledWith(contacts);
   });
 
-  it('should throw when emit not found', async () => { 
+  it('should throw when emit not found', async () => {
     // given
-    const contacts =  new ContactBuilder().buildMany();
+    const contacts = new ContactBuilder().buildMany();
     const repository = new InMemoryContactRepository();
-    repository.contacts = contacts
-    
+    repository.contacts = contacts;
+
     // wen
-    const sut = new ListContactUseCase(repository)
-    const promise = sut.handler()
+    const sut = new ListContactUseCase(repository);
+    const promise = sut.handler();
 
     // then
-    await expect(promise).rejects.toThrowError("Event \"success\" not found")
+    await expect(promise).rejects.toThrowError('Event "success" not found');
   });
 });

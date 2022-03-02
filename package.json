@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "npx eslint --ext .ts .",
+    "compile": "npx tsc"
   },
   "keywords": [],
   "author": "",

@@ -14,14 +14,21 @@ services:
   web:
     <<: *x-app
     env_file: .env
+    ports:
+      - 4000:4000
+      - 4001:4001
+      - 4002:4002
+      - 8080:8080
     expose:
-      - "8081"
-    command: "npm start"
+      - 8080
+      - 4001
+      - 4002
+    command: "npm run start"
     networks:
       - contato
   compile:
     <<: *x-app
-    command: "npm compile"
+    command: "npm run compile"
 
 networks:
   contato:

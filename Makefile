@@ -24,3 +24,16 @@ coverage-clean:
 
 compile-clean:
 	docker-compose run --rm compile rm -rf dist
+
+up:
+	docker-compose up -d web
+
+down:
+	docker-compose kill
+	docker-compose rm -f
+
+logs:
+	docker-compose logs -f web
+
+compile-logs:
+	docker-compose logs -f compile

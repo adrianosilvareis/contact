@@ -1,12 +1,19 @@
 import { Response } from 'express';
+import { Controller, Get, Res } from 'routing-controllers';
+import { inject, injectable } from 'inversify';
 
 import { Contact } from '@/contact/domain/entities/contact';
 import { ListContactUseCase } from '@/contact/domain/use-case/list-contact-use-case';
 
+@Controller()
+@injectable()
 export class ListContactController {
-  public constructor(private readonly listContactUseCase: ListContactUseCase) {}
+  public constructor(
+    @inject(ListContactUseCase) private readonly listContactUseCase: ListContactUseCase,
+  ) {}
 
-  public async list(res: Response): Promise<Response> {
+  @Get('/contacts')
+  public async list(@Res() res: Response): Promise<Response> {
     this.listContactUseCase.on('success', this.onSuccess(res));
     await this.listContactUseCase.handler();
 

@@ -1,5 +1,8 @@
+import { injectable } from 'inversify';
+
 import { Contact } from '@/contact/domain/entities/contact';
 
-export interface ListContactRepository {
-  listContacts(): Promise<Contact[]>
+@injectable()
+export abstract class ListContactRepository {
+  abstract listContacts(): Promise<Contact[]>
 }

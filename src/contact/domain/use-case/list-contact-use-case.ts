@@ -1,9 +1,12 @@
+import { inject, injectable } from 'inversify';
+
 import { Command } from '@/core/command';
 import { ListContactRepository } from '@/contact/domain/repositories/list-contact-repository';
 
+@injectable()
 export class ListContactUseCase extends Command {
   public constructor(
-    private readonly listContactRepository: ListContactRepository,
+    @inject(ListContactRepository) private readonly listContactRepository: ListContactRepository,
   ) {
     super();
   }

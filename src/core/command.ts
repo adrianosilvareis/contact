@@ -1,3 +1,6 @@
+import { injectable } from 'inversify';
+
+@injectable()
 export abstract class Command <T = unknown> {
   private events:{ [key:string]: (...args: any[]) => void } = {};
 

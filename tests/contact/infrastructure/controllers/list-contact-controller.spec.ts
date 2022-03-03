@@ -6,7 +6,7 @@ import { ListContactUseCase } from '@/contact/domain/use-case/list-contact-use-c
 import { ListContactController } from '@/contact/infrastructure/controllers/list-contact-controller';
 
 import { ContactBuilder } from '#/contact/builders/contact-builder';
-import { InMemoryContactRepository } from '#/contact/repositories/in-memory-contact-repository';
+import { InMemoryContactRepository } from '#/contact/stubs/in-memory-contact-repository';
 
 describe('ListContactController', () => {
   it('should return Ok when get list of contacts', async () => {

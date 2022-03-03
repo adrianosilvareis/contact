@@ -1,7 +1,8 @@
 import faker from 'faker';
 
 import { Contact } from '@/contact/domain/entities/contact';
-import { Builder } from '@/core/builder';
+
+import { Builder } from '#/helper/builder';
 
 export class ContactBuilder extends Builder<Contact, ContactBuilder> {
   public constructor() {

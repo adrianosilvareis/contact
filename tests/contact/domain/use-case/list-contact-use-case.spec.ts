@@ -1,6 +1,6 @@
 import { ListContactUseCase } from '@/contact/domain/use-case/list-contact-use-case';
 
-import { InMemoryContactRepository } from '#/contact/repositories/in-memory-contact-repository';
+import { InMemoryContactRepository } from '#/contact/stubs/in-memory-contact-repository';
 import { ContactBuilder } from '#/contact/builders/contact-builder';
 
 describe('ListContactUseCase', () => {

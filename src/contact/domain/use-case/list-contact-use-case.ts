@@ -12,8 +12,7 @@ export class ListContactUseCase extends Command {
   }
 
   public async handler(): Promise<void> {
-    const list = await this.listContactRepository.listContacts();
-
+    const list = await this.listContactRepository.getContacts();
     this.emit('success', list);
   }
 }

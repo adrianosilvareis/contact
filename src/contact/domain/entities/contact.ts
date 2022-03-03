@@ -3,7 +3,7 @@ import { Entity } from '@/core/entity';
 export interface ContactProps {
   name: string,
   email: string,
-  phoneNumber: string,
+  phoneNumber: string | null,
 }
 
 export class Contact extends Entity<ContactProps> implements ContactProps {

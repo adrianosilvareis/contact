@@ -7,7 +7,7 @@ import { ListContactRepository } from '@/contact/domain/repositories/list-contac
 export class InMemoryContactRepository implements ListContactRepository {
   public contacts: Contact[] = [];
 
-  async listContacts(): Promise<Contact[]> {
+  async getContacts(): Promise<Contact[]> {
     return this.contacts;
   }
 }

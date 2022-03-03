@@ -25,8 +25,11 @@ coverage-clean:
 compile-clean:
 	docker-compose run --rm compile rm -rf dist
 
+up-proxy:
+	docker-compose up -d nginx-proxy
+	
 up:
-	docker-compose up -d web
+	docker-compose up -d web adminer
 
 down:
 	docker-compose kill

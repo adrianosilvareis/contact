@@ -44,6 +44,7 @@
     "body-parser": "^1.19.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "email-validator": "^2.0.4",
     "express": "^4.17.3",
     "http-status-codes": "^2.2.0",
     "inversify": "^6.0.1",

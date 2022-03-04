@@ -17,7 +17,10 @@ describe('ListContact', () => {
   it('should return a list of contacts', async () => {
     // given
     const contacts = new ContactBuilder().buildMany();
-    clientSpy.contact.findMany.mockResolvedValue(contacts);
+    clientSpy
+      .contact
+      .findMany
+      .mockResolvedValue(ContactBuilder.manyToDto(contacts));
 
     // when
     const response = await request(require('@/config/server').server)

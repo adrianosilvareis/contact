@@ -29,4 +29,8 @@ export class Email {
   public static validateAddress(address: string): boolean {
     return email.validate(address);
   }
+
+  public toString(): string {
+    return this.address;
+  }
 }

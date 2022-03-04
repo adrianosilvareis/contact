@@ -41,5 +41,5 @@ export abstract class Builder<T, TBuilder extends Builder<T, TBuilder>> {
     return newBuilder;
   }
 
-    protected abstract buildDefault(): T;
+  protected abstract buildDefault(): T;
 }

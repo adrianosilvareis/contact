@@ -13,7 +13,8 @@ describe('PostgresContactRepository', () => {
   describe('ContactListRepository', () => {
     it('should return a list of contacts', async () => {
       // given
-      clientSpy.contact.findMany.mockResolvedValue(new ContactBuilder().buildMany());
+      const contactsBuilder = new ContactBuilder().buildMany();
+      clientSpy.contact.findMany.mockResolvedValue(ContactBuilder.manyToDto(contactsBuilder));
       const contactRepository = new PostgresContactRepository(databaseMock);
 
       // when

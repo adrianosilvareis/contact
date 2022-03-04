@@ -1,5 +1,7 @@
 import { injectable } from 'inversify';
 
+import { EventNotFoundError } from '@/erros/event-not-found-error';
+
 @injectable()
 export abstract class Command <T = unknown> {
   private events:{ [key:string]: (...args: any[]) => void } = {};
@@ -10,7 +12,7 @@ export abstract class Command <T = unknown> {
 
   protected emit(name: string, ...args: any[]): void {
     if (this.events[name] === undefined) {
-      throw new Error(`Event "${name}" not found`);
+      throw new EventNotFoundError(name);
     }
     this.events[name](...args);
     this.events = {};

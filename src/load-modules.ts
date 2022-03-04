@@ -3,7 +3,11 @@
 /* eslint-disable no-restricted-syntax */
 import _ from 'lodash';
 
+import { Logger } from '@/core/logger';
+
 const LOAD_MODULES = ['contact'];
+
+const logger = Logger.getLogger('System');
 
 export function load(applicationName = 'DEFAULT', modules: string | string[] = LOAD_MODULES): void {
   if (typeof modules === 'string') {
@@ -13,8 +17,7 @@ export function load(applicationName = 'DEFAULT', modules: string | string[] = L
       .filter((x) => !_.isEmpty(x));
   }
 
-  // eslint-disable-next-line no-console
-  console.log(`Loading modules for ${applicationName}`, modules);
+  logger.info(`Loading modules for ${applicationName}`, modules);
 
   for (const module of modules) {
     require(`@/${module}`);

@@ -31,6 +31,6 @@ describe('ListContactUseCase', () => {
     const promise = sut.handler();
 
     // then
-    await expect(promise).rejects.toThrowError('Event "success" not found');
+    await expect(promise).rejects.toThrowError('"success" not found!');
   });
 });

@@ -1,6 +1,7 @@
 import { Response } from 'express';
 import { Controller, Get, Res } from 'routing-controllers';
 import { inject, injectable } from 'inversify';
+import { StatusCodes } from 'http-status-codes';
 
 import { Contact } from '@/contact/domain/entities/contact';
 import { ListContactUseCase } from '@/contact/domain/use-case/list-contact-use-case';
@@ -22,7 +23,7 @@ export class ListContactController {
 
   private onSuccess(res: Response):(list: Contact[]) => void {
     return (list: Contact[]) => {
-      res.status(200).send(JSON.stringify(list));
+      res.status(StatusCodes.OK).json(list);
     };
   }
 }

@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "node dist/src/index.js",
     "lint": "npx eslint --ext .ts .",
-    "compile": "npx tsc"
+    "compile": "npx tsc",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +29,10 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "faker": "^5.5.3",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-mock-extended": "2.0.4",
+    "lint-staged": "^12.3.4",
     "node-mocks-http": "^1.11.0",
     "prisma": "^3.10.0",
     "supertest": "^6.2.2",

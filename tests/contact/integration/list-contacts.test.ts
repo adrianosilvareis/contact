@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 
 import { diContainer } from '@/config/di-container';
 import { DbClient } from '@/config/db-client';
-import { ContactParse } from '@/contact/infrastructure/parses/contact-parse';
+import { ContactParseDto } from '@/contact/infrastructure/parses/contact-parse-dto';
 
 import { clientSpy, databaseMock } from '#/helper/database-mock';
 import { ContactBuilder } from '#/contact/builders/contact-builder';
@@ -21,7 +21,7 @@ describe('ListContact', () => {
     clientSpy
       .contact
       .findMany
-      .mockResolvedValue(ContactParse.to().parseMany(contacts));
+      .mockResolvedValue(ContactParseDto.to().parseMany(contacts));
 
     // when
     const response = await request(require('@/config/server').server)

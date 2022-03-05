@@ -3,7 +3,7 @@ import { inject, injectable } from 'inversify';
 import { Contact } from '@/contact/domain/entities/contact';
 import { ListContactRepository } from '@/contact/domain/repositories/list-contact-repository';
 import { DbClient } from '@/config/db-client';
-import { ContactParse } from '@/contact/infrastructure/parses/contact-parse';
+import { ContactParseDto } from '@/contact/infrastructure/parses/contact-parse-dto';
 
 @injectable()
 export class PostgresContactRepository implements ListContactRepository {
@@ -11,6 +11,6 @@ export class PostgresContactRepository implements ListContactRepository {
 
   async getContacts(): Promise<Contact[]> {
     const contacts = await this.client.db.contact.findMany();
-    return new ContactParse().parseFromEntityMany(contacts);
+    return new ContactParseDto().parseFromEntityMany(contacts);
   }
 }

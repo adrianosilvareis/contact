@@ -4,9 +4,9 @@ import { Contact } from '@/contact/domain/entities/contact';
 import { Email } from '@/core/email';
 import { EntityParse } from '@/core/entity-parser';
 
-export class ContactParse extends EntityParse<Contact, ContactDto> {
-  public static to(): ContactParse {
-    return new ContactParse();
+export class ContactParseDto extends EntityParse<Contact, ContactDto> {
+  public static to(): ContactParseDto {
+    return new ContactParseDto();
   }
 
   public parse(entity: Contact): ContactDto {

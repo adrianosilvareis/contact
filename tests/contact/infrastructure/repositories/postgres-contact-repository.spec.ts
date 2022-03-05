@@ -2,6 +2,7 @@ import { mockReset } from 'jest-mock-extended';
 
 import { PostgresContactRepository } from '@/contact/infrastructure/postgres-repository/postgres-contact-respository';
 import { Contact } from '@/contact/domain/entities/contact';
+import { ContactParse } from '@/contact/infrastructure/parses/contact-parse';
 
 import { databaseMock, clientSpy } from '#/helper/database-mock';
 import { ContactBuilder } from '#/contact/builders/contact-builder';
@@ -14,7 +15,7 @@ describe('PostgresContactRepository', () => {
     it('should return a list of contacts', async () => {
       // given
       const contactsBuilder = new ContactBuilder().buildMany();
-      clientSpy.contact.findMany.mockResolvedValue(ContactBuilder.manyToDto(contactsBuilder));
+      clientSpy.contact.findMany.mockResolvedValue(ContactParse.to().parseMany(contactsBuilder));
       const contactRepository = new PostgresContactRepository(databaseMock);
 
       // when

@@ -1,5 +1,3 @@
-import { Contact as ContactDto } from '@prisma/client';
-
 import { Email } from '@/core/email';
 import { Entity } from '@/core/entity';
 
@@ -26,14 +24,5 @@ export class Contact extends Entity<ContactProps> implements ContactProps {
   public static create(props: ContactProps, _id?: string): Contact {
     props.email = props.email instanceof Email ? props.email : Email.createFromString(props.email);
     return new Contact(props, _id);
-  }
-
-  public toDto(): ContactDto {
-    return {
-      id: this.id,
-      name: this.name,
-      email: this.email.toString(),
-      phoneNumber: this.phoneNumber,
-    };
   }
 }

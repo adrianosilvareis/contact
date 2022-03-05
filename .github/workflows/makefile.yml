@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
+env: 
+  DATABASE_URL: "postgresql://postgres:postgres@db:5432/contact?schema=public"
+
 jobs:
   build:
 
